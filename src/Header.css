@@ -27,3 +27,51 @@
     outline-color: transparent;
     width: 100%;
 }
+
+.header__nav{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.header__link{
+    color: white;
+    text-decoration: none !important;
+}
+
+.header__link:hover{
+    color: #cd9042;
+}
+
+
+.header__option{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 10px 0px 10px;
+}
+
+.header__optionLineOne{
+    font-size: 10px ;
+}
+.header__optionLineTwo{
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.header__optionBasket{
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none !important;
+}
+
+.header__basketCount{
+    margin:  0px 10px 0px 10px;
+    text-decoration: none !important;
+}
+
+.header__basketCount:hover{
+    color: #cd9042;
+}
+.header__optionBasket:hover{
+    color: #cd9042; 
+}
