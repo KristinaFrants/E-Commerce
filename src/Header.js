@@ -2,7 +2,7 @@ import React from 'react'
 import './Header.css'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faShoppingBasket, faStoreAlt } from '@fortawesome/free-solid-svg-icons';
 
 function Header() {
     return (
@@ -10,7 +10,8 @@ function Header() {
 
         {/* Logo on the left */}
         <Link to="/">
-            <img className= "header__logo m-1" src="https://library.kissclipart.com/20180921/pre/kissclipart-ecommerce-website-icon-png-clipart-e-commerce-webs-c27adca43148f9e8.png"/>
+        <FontAwesomeIcon icon={faStoreAlt} className= "header__logo m-1"/>
+            {/* <img className= "header__logo m-1" src="https://library.kissclipart.com/20180921/pre/kissclipart-ecommerce-website-icon-png-clipart-e-commerce-webs-c27adca43148f9e8.png"/> */}
         </Link>
 
          {/* Search box */}

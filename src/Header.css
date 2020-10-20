@@ -1,11 +1,18 @@
 .header__logo{
-    width: 40px;
+    width: 40px !important;
     object-fit: contain;
+    color: white;
 }
+
+.header__logo:hover{
+    color:#cd9042;
+}
+
 
 .header{
     display: flex;
     align-items: center;
+    height: 45px;
 }
 
 .header__searchIcon{
@@ -62,6 +69,7 @@
     align-items: center;
     color: white;
     text-decoration: none !important;
+    margin:  5px 10px 0px 10px;
 }
 
 .header__basketCount{
