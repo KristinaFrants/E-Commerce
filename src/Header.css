@@ -1,0 +1,29 @@
+.header__logo{
+    width: 40px;
+    object-fit: contain;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+}
+
+.header__searchIcon{
+    background-color: #cd9042;
+    height: 30px;
+    padding: 2px;
+    width: 25px !important;
+    
+}
+
+.header__search{
+    display: flex;
+    flex:1;
+}
+
+.header__searchInput{
+    height:12px;
+    padding: 13px;
+    outline-color: transparent;
+    width: 100%;
+}
