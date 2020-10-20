@@ -13,6 +13,8 @@
     display: flex;
     align-items: center;
     height: 45px;
+    position: sticky;
+    z-index: 100;
 }
 
 .header__searchIcon{
