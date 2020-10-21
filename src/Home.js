@@ -50,7 +50,7 @@ function Home() {
                 <Product
                 title="Your product description goes here"
                 price={28.57}
-                image="https://cdn.pixabay.com/photo/2017/09/11/11/22/essential-oils-2738555_960_720.jpg"
+                image="https://image.freepik.com/free-photo/natural-cosmetics_23-2148574903.jpg"
                 rating={5}
                 />
             </div>
