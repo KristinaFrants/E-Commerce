@@ -3,8 +3,12 @@ import './Header.css'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faShoppingBasket, faStoreAlt } from '@fortawesome/free-solid-svg-icons';
+import { useStateValue } from "./StateProvider";
 
 function Header() {
+const [{basket}, dispatch] = useStateValue();
+
+
     return (
         <nav className="header bg-dark">
 
@@ -49,7 +53,7 @@ function Header() {
                         <FontAwesomeIcon icon={faShoppingBasket}/>
                         {/* Number of items in the basket */}
                         <span className="header__optionLineTwo 
-                        header__basketCount">0</span>
+                        header__basketCount">{basket?.length}</span>
                     </div>
                 </Link>
 

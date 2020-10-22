@@ -6,10 +6,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import * as serviceWorker from './serviceWorker';
+import { StateProvider } from './StateProvider';
+import reducer, {initialState} from "./reducer";
 
 ReactDOM.render(
   <React.StrictMode>
+    <StateProvider initialState={initialState} reducer={reducer}>
     <App />
+    </StateProvider>
 
   </React.StrictMode>,
   document.getElementById('root')
