@@ -1,10 +1,11 @@
 import React from 'react'
 import './Checkout.css';
+import Subtotal from "./Subtotal";
 
 function Checkout() {
     return (
-        <div className="checkout">
-            <div className="checkout__left">
+        <div className="row checkout">
+            <div className="checkout__left col-sm-8">
                 <img className="checkout__ad" src="https://image.freepik.com/free-vector/abstract-pink-polygon-banner-background_1035-19018.jpg"/>
                 <div>
                 <h2 className="checkout__title">
@@ -15,8 +16,8 @@ function Checkout() {
              </div>
             </div>
 
-            <div className="checkout__right">
-                <h2>Subtotal</h2>
+            <div className="checkout__right col-sm-4">
+                <Subtotal/>
             </div>
         </div>
     )
