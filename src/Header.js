@@ -4,10 +4,16 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faShoppingBasket, faStoreAlt } from '@fortawesome/free-solid-svg-icons';
 import { useStateValue } from "./StateProvider";
+import { auth } from "./firebase"
 
 function Header() {
-const [{basket}, dispatch] = useStateValue();
+const [{ basket, user }, dispatch] = useStateValue();
 
+const handleAuthentication = () => {
+    if (user) {
+        auth.signOut();
+    }
+}
 
     return (
         <nav className="header bg-dark">
@@ -26,10 +32,11 @@ const [{basket}, dispatch] = useStateValue();
 
             {/* Links */}
             <div className="header__nav">
-                <Link to="/login" className="header__link">
-                <div className="header__option">
+                <Link to={!user && "/login"} className="header__link">
+                <div onClick={handleAuthentication} className="header__option">
                     <span className="header__optionLineOne">Enter</span>
-                    <span className="header__optionLineTwo">Sing In</span>
+                    <span className="header__optionLineTwo">{user ? 
+                    'Sing Out' : 'Sing In'}</span>
                 </div>
                 </Link>
 
