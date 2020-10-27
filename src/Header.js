@@ -34,7 +34,7 @@ const handleAuthentication = () => {
             <div className="header__nav">
                 <Link to={!user && "/login"} className="header__link">
                 <div onClick={handleAuthentication} className="header__option">
-                    <span className="header__optionLineOne">Enter</span>
+                    <span className="header__optionLineOne">Hello, {!user ? 'Guest' : user.email}</span>
                     <span className="header__optionLineTwo">{user ? 
                     'Sing Out' : 'Sing In'}</span>
                 </div>
