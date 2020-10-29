@@ -8,6 +8,7 @@ import CurrencyFormat from 'react-currency-format';
 import { getBasketTotal } from './reducer';
 import { Button } from 'react-bootstrap';
 import axios from './axios';
+import {db} from "./firebase"
 
 
 function Payment() {
@@ -28,13 +29,13 @@ function Payment() {
         const getClientSecret = async () => {
             const response =await axios({
                 method:'post',
-                //stripe expects total in a currency subunits
-                url: `/payments/create?total=${getBasketTotal(basket) * 100}`
+                url: `/payments/create?total=${getBasketTotal(basket)*100}`
             });
             setClientSecret(response.data.clientSecret)
         }
         getClientSecret();
     }, [basket])
+
 
     const handleSubmit = async (event)=> {
         event.preventDefault();
@@ -45,10 +46,22 @@ function Payment() {
             card: elements.getElement(CardElement)
         }
     }).then(({ paymentIntent }) => {
+
+        // db.collection('users').doc(user?.id).collection('orders')
+        // .doc(paymentIntent.id).set({
+        //     basket: basket,
+        //     amount: paymentIntent.amount,
+        //     created: paymentIntent.created
+        // })
+
         //PaymentConfirmation
         setSucceeded(true);
         setError(null)
         setProcessing(false)
+
+        dispatch({
+            type: 'EMPTY_BASKET'
+        })
 
         history.replace('/orders')
     })
@@ -61,6 +74,14 @@ const handleChange = event => {
     setDisabled(event.empty);
     setError(event.error ? event.error.message : "");
 }
+
+const productsPage =() => {
+    //delite items from the basket
+    dispatch({
+        type: 'EMPTY_BASKET'
+    })  
+    history.push('/orders') 
+ }
 
     return (
         <div className='payment'>
@@ -122,11 +143,12 @@ const handleChange = event => {
                                             thousandSeparator={true}
                                             prefix={"$"}
                                         />
-                                        <Button 
+                                        <button 
                                         disabled={processing || disabled || succeeded} 
                                         variant='dark' size="sm">
                                             <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
-                                        </Button>
+                                        </button>
+                                        <Button className="ml-3" onClick={productsPage} variant='dark' size="sm"> Checkout </Button>
                                     </div>
 
                                     {/* Errors */}

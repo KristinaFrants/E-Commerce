@@ -4,11 +4,11 @@ import { Button } from 'react-bootstrap';
 import { useStateValue } from "./StateProvider"
 
 function CheckoutProduct({id, image, title, price, rating}) {
-    const [{ basket }, dispath] = useStateValue();
+    const [{ basket }, dispatch] = useStateValue();
 
     const removeFromBasket =() => {
         //delite items from the basket
-        dispath({
+        dispatch({
             type: 'REMOVE_FROM_BASKET',
             id: id,
         })   
