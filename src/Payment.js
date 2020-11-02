@@ -46,13 +46,19 @@ function Payment() {
             card: elements.getElement(CardElement)
         }
     }).then(({ paymentIntent }) => {
+ 
+        console.log("payment", basket)
 
-        // db.collection('users').doc(user?.id).collection('orders')
-        // .doc(paymentIntent.id).set({
-        //     basket: basket,
-        //     amount: paymentIntent.amount,
-        //     created: paymentIntent.created
-        // })
+        db
+        .collection('users')
+        .doc(user?.uid)
+        .collection('orders')
+        .doc(paymentIntent.id)
+        .set({
+            basket: basket,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created
+        })
 
         //PaymentConfirmation
         setSucceeded(true);
@@ -148,7 +154,7 @@ const productsPage =() => {
                                         variant='dark' size="sm">
                                             <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
                                         </button>
-                                        <Button className="ml-3" onClick={productsPage} variant='dark' size="sm"> Checkout </Button>
+                                        {/* <Button className="ml-3" onClick={productsPage} variant='dark' size="sm"> Checkout </Button> */}
                                     </div>
 
                                     {/* Errors */}
